@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PASTA - Premium Packaging Art Studio & Data-Driven Market Trend Analysts. Elevating global brands through bespoke identity designs.">
+    <title>PASTA | Packaging Art Studio & Trend Analysts</title>
+    
+    <!-- Tailwind CSS & Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .luxury-font { font-family: 'Playfair Display', Georgia, serif; }
+        
+        /* Dynamic Interactive Background System */
+        .bg-interactive-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #111827, #0b0f19, #030712);
+            overflow: hidden;
+        }
+
+        /* Professional Spotlight Overlay */
+        .bg-interactive-canvas::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle 180px at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(245, 158, 11, 0.08) 0%, transparent 100%), inherit;
+            filter: blur(40px);
+            mask-image: var(--cursor-mask, radial-gradient(circle 0px at 0px 0px, transparent 100%, black 100%));
+            -webkit-mask-image: var(--cursor-mask, radial-gradient(circle 0px at 0px 0px, transparent 100%, black 100%));
+            transition: filter 0.3s ease;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d97706; }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans antialiased selection:bg-amber-500 selection:text-gray-950">
+
+    <!-- Interactive Background Layer -->
+    <div class="bg-interactive-canvas" id="interactiveBg"></div>
+
+    <!-- Global Navigation Header -->
+    <header class="bg-gray-950/70 backdrop-blur-xl shadow-2xl sticky top-0 z-50 border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Brand Logo -->
+            <a href="#home" class="flex flex-col justify-center cursor-pointer group transform hover:scale-105 transition-all duration-300">
+                <span class="text-2xl md:text-3xl font-extrabold tracking-[0.25em] text-amber-500 luxury-font uppercase group-hover:text-amber-400 transition-colors">
+                    PASTA
+                </span>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-semibold mt-0.5">
+                    Art Studio & Trends
+                </span>
+            </a>
+
+            <!-- Desktop Navigation Menu (Links scale up on hover) -->
+            <nav class="hidden md:flex items-center space-x-10 font-medium text-sm tracking-wider">
+                <a href="#home" class="text-gray-300 hover:text-amber-400 transform hover:scale-110 active:scale-95 transition-all duration-200">HOME</a>
+                <a href="#services" class="text-gray-300 hover:text-amber-400 transform hover:scale-110 active:scale-95 transition-all duration-200">SERVICES</a>
+                <a href="#about" class="text-gray-300 hover:text-amber-400 transform hover:scale-110 active:scale-95 transition-all duration-200">ABOUT US</a>
+                <a href="#contact" class="text-gray-300 hover:text-amber-400 transform hover:scale-110 active:scale-95 transition-all duration-200">CONTACT</a>
+            </nav>
+            
+            <!-- Action Button -->
+            <div class="hidden md:flex items-center">
+                <a href="#contact" class="bg-gradient-to-r from-amber-500 to-amber-600 text-gray-950 px-6 py-2.5 rounded-full font-bold hover:from-amber-400 hover:to-amber-500 transform hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/25">
+                    Book Consultation
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-amber-400 focus:outline-none" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-gray-950/95 backdrop-blur-2xl border-b border-white/5 px-6 py-6 space-y-4">
+            <a href="#home" class="block text-gray-300 hover:text-amber-400 font-medium py-2">Home</a>
+            <a href="#services" class="block text-gray-300 hover:text-amber-400 font-medium py-2">Services</a>
+            <a href="#about" class="block text-gray-300 hover:text-amber-400 font-medium py-2">About Us</a>
+            <a href="#contact" class="block text-gray-300 hover:text-amber-400 font-medium py-2">Contact</a>
+            <a href="#contact" class="block bg-amber-500 text-gray-950 text-center font-bold py-3 rounded-lg mt-4">Book Consultation</a>
+        </div>
+    </header>
+
+    <!-- Hero / Main Banner Section -->
+    <section id="home" class="py-24 md:py-36 border-b border-white/[0.03] relative overflow-hidden flex items-center min-h-[85vh]">
+        <div class="container mx-auto px-6 text-center max-w-5xl relative z-10">
+            <span class="inline-flex items-center gap-2 border border-amber-500/30 text-amber-400 text-xs font-semibold px-5 py-2 rounded-full uppercase tracking-widest bg-amber-500/5 backdrop-blur-md mb-8 animate-pulse">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Packaging Art Studio & Trend Analysts
+            </span>
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.15] luxury-font tracking-wide text-white">
+                Turn Your Product Packaging <br class="hidden md:inline">Into A <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 italic">Masterpiece</span>
+            </h1>
+            <p class="text-base md:text-xl text-gray-400 mt-8 leading-relaxed max-w-3xl mx-auto font-light">
+                We engineer market-leading consumer experiences. By fusing deep cultural data-driven trend analysis with bespoke premium studio art, we create commercial luxury structures that command premium real estate instantly.
+            </p>
+            <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-5">
+                <a href="#services" class="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-600 text-gray-950 px-8 py-4 rounded-xl font-bold hover:from-amber-400 hover:to-amber-500 transform hover:scale-105 transition-all duration-300 shadow-xl shadow-amber-500/10 hover:shadow-amber-500/20 text-center">
+                    Explore Our Services
+                </a>
+                <a href="#contact" class="w-full sm:w-auto bg-white/5 text-amber-400 border border-white/10 px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transform hover:scale-105 transition-all duration-300 text-center backdrop-blur-md hover:border-amber-500/30">
+                    Let's Collaborate
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 md:py-32 border-b border-white/[0.03]">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold text-white luxury-font tracking-wide">Strategic Capabilities</h2>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-400 mt-5 font-light text-base md:text-lg">Through elite high-end artistry and microscopic trend intelligence, we redefine standard packaging into iconic shelf-assets.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <!-- Card 1 -->
+                <div class="border border-white/5 p-10 rounded-2xl bg-gray-900/20 backdrop-blur-xl hover:shadow-3xl hover:border-amber-500/20 transition-all duration-500 group hover:scale-[1.03] transform relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-b from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-400 font-bold text-2xl mb-8 group-hover:bg-amber-500 group-hover:text-gray-950 transition-all duration-300 shadow-inner">
+                        🎨
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 luxury-font tracking-wide">Packaging Art Studio</h3>
+                    <p class="text-gray-400 leading-relaxed font-light">
+                        Deconstructing consumer psychology to craft bespoke premium fine-art illustrations, structural forms, and sensory designs. We construct physical and digital packaging solutions that command uncompromised attention across modern e-commerce and premium retail landscapes.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="border border-white/5 p-10 rounded-2xl bg-gray-900/20 backdrop-blur-xl hover:shadow-3xl hover:border-amber-500/20 transition-all duration-500 group hover:scale-[1.03] transform relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-b from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-400 font-bold text-2xl mb-8 group-hover:bg-amber-500 group-hover:text-gray-950 transition-all duration-300 shadow-inner">
+                        📈
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 luxury-font tracking-wide">Packaging Trend Analysis</h3>
+                    <p class="text-gray-400 leading-relaxed font-light">
+                        Leveraging deep qualitative predictive market data and future global aesthetic trajectories. We provide meticulous intelligence regarding evolving consumer color matrices, sustainable substrates, eco-conscious materials, and demographic behavioral Shifts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 md:py-32 bg-gray-950/40 backdrop-blur-md border-b border-white/[0.03]">
+        <div class="container mx-auto px-6 max-w-4xl text-center relative">
+            <div class="absolute -top-10 left-1/2 transform -translate-x-12 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl"></div>
+            <h2 class="text-3xl md:text-5xl font-bold luxury-font tracking-wide text-amber-400 mb-8">The PASTA Paradigm</h2>
+            <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 font-light">
+                <strong>PASTA (Packaging Art Studio & Trend Analysts)</strong> operates at the convergence of commercial prestige and mathematical consumer trend metrics. We reject ordinary transactional design. To us, packaging isn't basic confinement—it is a brand's ultimate spatial manifesto.
+            </p>
+            <p class="text-lg md:text-xl text-gray-300 leading-relaxed font-light">
+                By fusing high-fidelity studio asset generation with rigorously verified predictive forecasting, we deliver multi-sensory unboxing ecosystems that optimize retention, validate pricing premium, and capture long-term loyalty.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 md:py-32">
+        <div class="container mx-auto px-6 max-w-xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white luxury-font tracking-wide">Initiate Consultation</h2>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-400 mt-5 font-light">Entrust your product scaling parameters to our elite design team. We reply comprehensively within 12 standard business hours.</p>
+            </div>
+            
+            <!-- Form Design and Gmail Connection -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-gray-900/30 backdrop-blur-2xl p-8 sm:p-10 rounded-3xl border border-white/5 shadow-2xl relative">
+                
+                <!-- Gmail Delivery Integration Token -->
+                <!-- NOTE: To ensure form message delivery, replace the value below with your Web3Forms access key -->
+                <input type="hidden" name="access_key" value="c9fb35aa-3593-4746-9761-dd8257b95fe2">
+                
+                <!-- Redirect Page Post-Submission -->
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                
+                <!-- Subject Line for Live Tracking -->
+                <input type="hidden" name="subject" value="New Packaging Project Brief from PASTA Website">
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2.5">Full Name</label>
+                    <input type="text" name="name" required class="w-full px-5 py-4 rounded-xl border border-white/5 bg-gray-950/50 text-white focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 outline-none transition-all duration-300 font-light" placeholder="John Doe">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2.5">Corporate Email Address</label>
+                    <input type="email" name="email" required class="w-full px-5 py-4 rounded-xl border border-white/5 bg-gray-950/50 text-white focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 outline-none transition-all duration-300 font-light" placeholder="name@company.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2.5">Project Parameters & Brief</label>
+                    <textarea name="message" rows="4" required class="w-full px-5 py-4 rounded-xl border border-white/5 bg-gray-950/50 text-white focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 outline-none transition-all duration-300 font-light resize-none" placeholder="Elaborate on your target demographics, timelines, or structural considerations..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-gray-950 font-bold py-4 rounded-xl hover:from-amber-400 hover:to-amber-500 transform hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-xl shadow-amber-500/10 hover:shadow-amber-500/20 tracking-wider uppercase text-xs">
+                    Transmit Request
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Global Professional Footer -->
+    <footer class="bg-gray-950 text-gray-600 py-16 border-t border-white/5 backdrop-blur-md">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-amber-500 font-bold text-2xl luxury-font tracking-[0.2em] mb-2 uppercase">PASTA</p>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-medium mb-8">Packaging Art Studio & Trend Analysts</p>
+            <div class="w-12 h-[1px] bg-white/10 mx-auto mb-8"></div>
+            <p class="text-xs text-gray-500 tracking-wide">&copy; 2026 PASTA Studio Inc. Engineering Premium Identity. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Magic Background Script & Mobile Navigation Controller -->
+    <script>
+        // Background Blur and Clear Intelligence
+        const canvas = document.getElementById('interactiveBg');
+        const clearRadius = 170; // Radius of the clear area around the mouse (pixels)
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // CSS variable customization (only tracks background masking)
+            canvas.style.setProperty('--mouse-x', `${x}px`);
+            canvas.style.setProperty('--mouse-y', `${y}px`);
+            
+            const maskStyle = `radial-gradient(circle ${clearRadius}px at ${x}px ${y}px, transparent 100%, black 100%)`;
+            canvas.style.setProperty('--cursor-mask', maskStyle);
+        });
+
+        // Restore when mouse leaves the window
+        document.addEventListener('mouseleave', () => {
+            canvas.style.setProperty('--cursor-mask', `radial-gradient(circle 0px at 0px 0px, transparent 100%, black 100%)`);
+        });
+
+        // Responsive Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hide menu when clicking on a link inside the mobile menu
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        const mobileLinksArray = Array.from(mobileLinks);
+        mobileLinksArray.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
